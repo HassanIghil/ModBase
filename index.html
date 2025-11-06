@@ -1,382 +1,327 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Apps Download - Premium Apps & Games</title>
-    <link rel="stylesheet" href="style.css">
+
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #0f0f0f;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 255, 157, 0.3), transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 184, 0, 0.3), transparent 50%),
+                        radial-gradient(circle at 40% 90%, rgba(0, 163, 255, 0.2), transparent 50%);
+            animation: gradientShift 15s ease infinite;
+            z-index: 0;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float-particle 20s linear infinite;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 4s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 8s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 2s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 6s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 10s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 3s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 7s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: 5s; }
+
+        @keyframes scaleUp {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+        .hover-scale:hover {
+            animation: scaleUp 0.3s forwards;
+        }
+        .progress-bar {
+            transition: width 0.1s linear;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #10b981, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Platform Filter Styles */
+        .platform-filter {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: rgba(23, 23, 23, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: fit-content;
+            margin: 1rem auto;
+        }
+        
+        /* Category Filter Styles */
+        .category-filter {
+            display: flex;
+            gap: 0.25rem;
+            padding: 0.35rem;
+            background: rgba(23, 23, 23, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 0.5rem auto;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .category-filter .filter-btn {
+            padding: 0.35rem 0.5rem;
+            font-size: 0.9rem;
+            gap: 0.25rem;
+        }
+        
+        .category-filter .filter-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.7);
+            background: transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, #10b981, #3b82f6);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+            border-radius: 0.75rem;
+        }
+
+        .filter-btn:hover {
+            color: white;
+        }
+
+        .filter-btn:hover::before {
+            opacity: 0.1;
+        }
+
+        .filter-btn.active {
+            color: white;
+            background: linear-gradient(45deg, #10b981, #3b82f6);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+        }
+
+        .filter-btn .icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+            filter: grayscale(100%) brightness(150%);
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover .icon,
+        .filter-btn.active .icon {
+            filter: grayscale(0%);
+        }
+
+        @@media (max-width: 640px) {
+            .platform-types-grid {
+                display: flex !important;
+                flex-wrap: nowrap !important;
+                overflow-x: auto !important;
+                gap: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+
+            .platform-card {
+                min-width: 150px !important;
+                max-width: 150px !important;
+                width: 150px !important;
+                min-height: 220px !important;
+                max-height: 220px !important;
+                height: 220px !important;
+                flex: 0 0 auto !important;
+                display: flex !important;
+                flex-direction: column !important;
+            }
+
+            .platform-card ul {
+                flex: 1 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: flex-start !important;
+            }
+        }
+
+        /* Stats cards styles */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+            gap: 0.75rem !important;
+        }
+
+        .stats-card {
+            padding: 1rem !important;
+            min-height: 110px !important;
+            max-width: 160px !important;
+            margin: 0 auto !important;
+            width: 100% !important;
+        }
+
+        .stats-card [data-stats] {
+            font-size: 1.5rem !important;
+            margin-bottom: 0.25rem !important;
+        }
+
+        .stats-card p {
+            font-size: 0.875rem !important;
+            line-height: 1.2 !important;
+        }
+
+        /* Responsive styles for platform cards */
+        @media (max-width: 768px) {
+            .platform-card {
+                padding: 0.75rem !important;
+            }
+
+            .platform-card .icon-container {
+                width: 2.5rem !important;
+                height: 2.5rem !important;
+            }
+
+            .platform-card .icon {
+                width: 1.25rem !important;
+                height: 1.25rem !important;
+            }
+
+            .platform-card h3 {
+                font-size: 0.875rem !important;
+            }
+
+            .platform-card p {
+                font-size: 0.75rem !important;
+            }
+
+            .feature-list {
+                display: none !important;
+            }
+
+            /* Stats cards tablet adjustments */
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.5rem !important;
+                padding: 0 0.5rem !important;
+            }
+
+            .stats-card {
+                padding: 0.75rem !important;
+                min-height: 90px !important;
+                max-width: 140px !important;
+            }
+
+            .stats-card [data-stats] {
+                font-size: 1.25rem !important;
+            }
+
+            .stats-card p {
+                font-size: 0.75rem !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .platform-types-grid {
+                display: flex !important;
+                flex-wrap: nowrap !important;
+                overflow-x: auto !important;
+                gap: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+
+            .platform-card {
+                min-width: 150px !important;
+                flex: 0 0 auto !important;
+            }
+
+            /* Stats cards mobile adjustments */
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.4rem !important;
+                padding: 0 0.25rem !important;
+            }
+
+            .stats-card {
+                padding: 0.6rem !important;
+                min-height: 80px !important;
+                max-width: 120px !important;
+            }
+
+            .stats-card [data-stats] {
+                font-size: 1.1rem !important;
+                margin-bottom: 0.2rem !important;
+            }
+
+            .stats-card p {
+                font-size: 0.7rem !important;
+                line-height: 1.1 !important;
+            }
+        }
     
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <div class="bg-gradient"></div>
-    <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
-
-    <!-- Header -->
-    <header class="sticky top-0 z-50 border-b bg-gray-900/80 border-gray-700 backdrop-blur-lg">
-        <div class="max-w-7xl mx-auto px-4 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-                    </svg>
-                    <h1 class="text-2xl font-bold gradient-text"> <a href="/">ModBase</a></h1>
-                </div>
-                <div class="flex items-center gap-4">
-                    <span class="hidden md:block text-sm text-gray-400">🔓 Unlock Premium Apps</span>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="relative z-10 max-w-7xl mx-auto px-4 py-12">
-        <div class="text-center mb-8">
-            <h2 class="text-5xl font-bold mb-4 gradient-text">Download Premium Apps Free</h2>
-            <p class="text-lg text-gray-300">Get modified, cracked, and premium versions of your favorite apps & games</p>
-            <div class="mt-4 flex items-center justify-center gap-3 flex-wrap">
-                <span class="px-4 py-2 bg-green-600/20 border border-green-500/30 rounded-full text-green-400 text-sm font-semibold">✓ No Ads</span>
-                <span class="px-4 py-2 bg-blue-600/20 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold">✓ Unlimited Money</span>
-                <span class="px-4 py-2 bg-purple-600/20 border border-purple-500/30 rounded-full text-purple-400 text-sm font-semibold">✓ Premium Unlocked</span>
-            </div>
-        </div>
-
-        <!-- Search Bar -->
-        <div class="max-w-2xl mx-auto mb-12">
-            <div class="relative rounded-xl shadow-2xl bg-gray-800">
-                <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                </svg>
-                <input type="text" id="searchInput" placeholder="Search for apps and games..." class="w-full pl-12 pr-4 py-4 rounded-xl bg-gray-800 text-white placeholder-gray-400 outline-none"/>
-            </div>
-        </div>
-
-        <!-- Platform Types -->
-        <div class="max-w-5xl mx-auto mb-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 platform-types-grid">
-                <!-- iOS Apps -->
-                <div class="platform-card bg-gray-800/80 rounded-xl p-6 backdrop-blur-sm border border-gray-700/50 hover:border-gray-600/50 transition-all">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-[48px] h-[48px] rounded-xl bg-gray-700/50 flex items-center justify-center icon-container">
-                            <svg class="w-[40px] h-[40px] text-gray-200" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-200">iOS Apps</h3>
-                            <p class="text-base text-gray-400">iPhone & iPad</p>
-                        </div>
-                    </div>
-                    <ul class="space-y-2 text-sm text-gray-300">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            Modified IPA files
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            Premium features unlocked
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            No jailbreak needed
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Android Apps -->
-
-                <div class="platform-card bg-gray-800/80 rounded-xl p-6 backdrop-blur-sm border border-gray-700/50 hover:border-gray-600/50 transition-all">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-gray-700/50 flex items-center justify-center icon-container">
-                            <svg class="w-[40px] h-[40px] text-gray-200" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24c-2.86-1.21-6.08-1.21-8.94 0L5.65 5.67c-.19-.29-.58-.38-.87-.2-.28.18-.37.54-.22.83L6.4 9.48C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25zm10 0c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"/>                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-200">Android Apps</h3>
-                            <p class="text-base text-gray-400">Phones & Tablets</p>
-                        </div>
-                    </div>
-                    <ul class="space-y-2 text-sm text-gray-300">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            Modded APK files
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            No root required
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            Easy installation
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- PC Software -->
-
-                <div class="platform-card bg-gray-800/80 rounded-xl p-6 backdrop-blur-sm border border-gray-700/50 hover:border-gray-600/50 transition-all">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-gray-700/50 flex items-center justify-center icon-container">
-                            <svg class="w-[40px] h-[40px] text-gray-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M9 17H4a2 2 0 01-2-2V5a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2h-5m-5 0v4m0 0h5m-5 0H9" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-200">PC Software</h3>
-                            <p class="text-base text-gray-400">Games & Applications</p>
-                        </div>
-                    </div>
-                    <ul class="space-y-2 text-sm text-gray-300">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            Cracked games & software
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            All DLCs included
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            Latest updates
-                        </li>
-                    </ul>
-                </div>
-                
-            </div>
-        </div>
-
-        <!-- Stats Bar -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-            <div class="p-6 rounded-xl text-center bg-gradient-to-br from-green-600 to-green-800 shadow-xl hover-scale">
-                <svg class="w-8 h-8 mx-auto mb-2 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-                </svg>
-                <div class="text-3xl font-bold mb-1"><span data-stats="apps-count">0</span></div>
-                <div class="text-green-200">Apps Available</div>
-            </div>
-            <div class="p-6 rounded-xl text-center bg-gradient-to-br from-blue-600 to-blue-800 shadow-xl hover-scale">
-                <svg class="w-8 h-8 mx-auto mb-2 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-                </svg>
-                <div class="text-3xl font-bold mb-1">2.5M+</div>
-                <div class="text-blue-200">Downloads</div>
-            </div>
-            <div class="p-6 rounded-xl text-center bg-gradient-to-br from-purple-600 to-purple-800 shadow-xl hover-scale">
-                <svg class="w-8 h-8 mx-auto mb-2 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                </svg>
-                <div class="text-3xl font-bold mb-1">100%</div>
-                <div class="text-purple-200">Unlocked</div>
-            </div>
-            <div class="p-6 rounded-xl text-center bg-gradient-to-br from-orange-600 to-orange-800 shadow-xl hover-scale">
-                <svg class="w-8 h-8 mx-auto mb-2 text-orange-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                </svg>
-                <div class="text-3xl font-bold mb-1">Daily</div>
-                <div class="text-orange-200">Updates</div>
-            </div>
-        </div>
-
-        <!-- Category Tabs -->
-        <div class="mb-8 flex flex-col gap-4">
-            <!-- Platform Filter -->
-            <div class="platform-filter">
-                <button onclick="filterPlatform('all', this)" class="filter-btn active">
-                    <svg class="icon inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    All
-                </button>
-                <button onclick="filterPlatform('android', this)" class="filter-btn">
-                    <svg class="icon inline-block" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993s-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993s-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5656.416.416 0 00-.5656.1521l-2.0223 3.503c-1.5366-.6564-3.2484-.6564-4.785 0l-2.0223-3.503a.416.416 0 00-.5656-.1521.416.416 0 00-.1521.5656l1.9973 3.4592c-2.3876 1.2307-3.9851 3.5449-4.0994 6.2221h14.5143c-.1143-2.6772-1.7118-4.9914-4.0994-6.2221"/>
-                    </svg>
-                    Android
-                </button>
-                <button onclick="filterPlatform('ios', this)" class="filter-btn">
-                    <svg class="icon inline-block" viewBox="0 0 24 24" fill="currentColor">
-                        <path transform="scale(0.7) translate(5,5)" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/>
-                    </svg>
-                    iOS
-                </button>
-                <button onclick="filterPlatform('pc', this)" class="filter-btn">
-                    <svg class="icon inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 17H4a2 2 0 01-2-2V5a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2h-5m-5 0v4m0 0h5m-5 0H9" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Pc
-                </button>
-            </div>
-            <!-- Category Filter -->
-            <div class="category-filter">
-                <button onclick="filterCategory('all', this)" class="filter-btn active">
-                    <svg class="icon inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    All Apps
-                </button>
-                <button onclick="filterCategory('games', this)" class="filter-btn">
-                    <svg class="icon inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 8v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2M4 6h16M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Games
-                </button>
-                <button onclick="filterCategory('mod', this)" class="filter-btn">
-                    <svg class="icon inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Modded
-                </button>
-                <button onclick="filterCategory('premium', this)" class="filter-btn">
-                    <svg class="icon inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 7h-7m0 0v11m0-11h-7m14 6h-4m0 0v5m0-5h-4M6 7v11m0 0h12" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Premium
-                </button>
-                <button onclick="filterCategory('cracked', this)" class="filter-btn">
-                    <svg class="icon inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Cracked
-                </button>
-            </div>
-        </div>
-
-        <!-- Apps Grid -->
-        <div id="appsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8"></div>
-    </section>
-
-    <!-- Download Modal -->
-    <div id="modal" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-        <div class="max-w-sm w-full rounded-xl p-6 relative bg-gradient-to-br from-gray-800 to-gray-900 border border-green-500 shadow-2xl">
-            <button id="closeModal" class="absolute top-3 right-3 p-1.5 rounded-lg hover:bg-gray-700">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                </svg>
-            </button>
-            
-            <div class="text-center">
-                <div class="w-16 h-16 mx-auto mb-3 rounded-xl bg-gradient-to-br from-green-500 to-blue-500 flex items-center justify-center">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-                    </svg>
-                </div>
-                <h3 id="modalTitle" class="text-xl font-bold mb-1"></h3>
-                <p id="modalVersion" class="mb-2 text-xs text-gray-400"></p>
-                <div id="modalBadges" class="flex justify-center gap-2 mb-3"></div>
-                
-                <div id="progressSection" class="mb-6">
-                    <div class="relative w-32 h-32 mx-auto mb-4">
-                        <svg class="transform -rotate-90 w-32 h-32">
-                            <circle cx="64" cy="64" r="56" stroke="currentColor" stroke-width="8" fill="none" class="text-gray-700"/>
-                            <circle id="progressCircle" cx="64" cy="64" r="56" stroke="url(#gradient)" stroke-width="8" fill="none" stroke-linecap="round" style="stroke-dasharray: 351.858; stroke-dashoffset: 351.858;"/>
-                            <defs>
-                                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" stop-color="#10b981"/>
-                                    <stop offset="50%" stop-color="#3b82f6"/>
-                                    <stop offset="100%" stop-color="#8b5cf6"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <span id="progressText" class="text-2xl font-bold">0%</span>
-                        </div>
-                    </div>
-                    <p id="progressMessage" class="text-sm text-gray-400">Preparing download...</p>
-                </div>
-
-                <div id="instructionsSection" class="hidden mb-6">
-                    <div class="mb-3 p-4 rounded-xl bg-gray-700 border border-green-500">
-                        <h4 class="font-bold mb-2 text-base text-blue-400">🔓 Complete Task to Unlock:</h4>
-                        <div class="text-left text-sm space-y-2 text-gray-300">
-                            <p class="mb-2 text-xs">Complete one task to access the download:</p>
-                            <div id="contentLockerFrame" class="w-full min-h-[250px] bg-gray-800 rounded-lg p-3">
-                                <!-- Content locker iframe or tasks will be loaded here -->
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div id="downloadSection" class="hidden">
-                        <div class="mb-4 p-5 rounded-xl bg-gray-700 border border-green-500">
-                            <h4 class="font-bold mb-3 text-lg text-green-400">📱 Installation Guide:</h4>
-                            <ol class="text-left text-sm space-y-3 text-gray-300">
-                                <li class="flex items-start gap-2">
-                                    <span class="font-bold text-green-500">1.</span>
-                                    <span>Click the download button below</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="font-bold text-green-500">2.</span>
-                                    <span>Enable "Install from Unknown Sources" in your device settings</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="font-bold text-green-500">3.</span>
-                                    <span>Open the downloaded APK/IPA file and install</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="font-bold text-green-500">4.</span>
-                                    <span id="extraSteps">Enjoy all premium features unlocked!</span>
-                                </li>
-                            </ol>
-                            <div class="mt-4 pt-4 border-t border-gray-600">
-                                <div class="flex items-center justify-between text-xs">
-                                    <span class="text-gray-400">File size: <span id="fileSize"></span></span>
-                                    <span class="text-green-400">✓ Virus scanned</span>
-                                </div>
-                            </div>
-                        </div>
-                        <button id="downloadBtn" class="w-full py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold rounded-xl hover:from-green-600 hover:to-emerald-700 transition-all mb-3 shadow-lg flex items-center justify-center gap-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-                            </svg>
-                            Download Now
-                        </button>
-                        <p class="text-xs text-gray-500">⚠️ For educational purposes only. Use at your own risk.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="relative z-10 border-t mt-12 py-8 bg-gray-900 border-gray-800 md:py-8 py-4">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-400 text-sm md:text-base">© 2025 ModBase. All apps are third-party modifications.</p>
-            <p class="text-xs md:text-sm mt-1 md:mt-2 text-gray-500">⚠️ Download at your own risk. We are not responsible for any damages.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
-
-
-
-
-
