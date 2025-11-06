@@ -621,36 +621,14 @@ const apps = [
         function filterPlatform(platform, clickedButton = null) {
             if (!clickedButton) return;
 
-            // Handle platform filter buttons
-            if (platform === 'all') {
-                // If "All" is clicked, deactivate all platform filters
-                document.querySelectorAll('.platform-filter .filter-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                activePlatformButton = null;
-                currentPlatform = 'all';
-            } else {
-                // If clicking the same button that's already active, deactivate it
-                if (activePlatformButton === clickedButton) {
-                    clickedButton.classList.remove('active');
-                    activePlatformButton = null;
-                    currentPlatform = 'all';
-                } else {
-                    // Deactivate previous platform button
-                    if (activePlatformButton) {
-                        activePlatformButton.classList.remove('active');
-                    }
-                    // Activate the new button
-                    clickedButton.classList.add('active');
-                    activePlatformButton = clickedButton;
-                    currentPlatform = platform;
-                }
-                // Deactivate the "All" button
-                const allButton = document.querySelector('.platform-filter .filter-btn[onclick*="\'all\'"]');
-                if (allButton) {
-                    allButton.classList.remove('active');
-                }
-            }
+            // Remove active class from all platform buttons
+            document.querySelectorAll('.platform-filter .filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Set the clicked button as active
+            clickedButton.classList.add('active');
+            currentPlatform = platform;
             
             applyFilters();
         }
@@ -658,38 +636,14 @@ const apps = [
         function filterCategory(category, clickedButton = null) {
             if (!clickedButton) return;
 
-            // Handle category filter buttons
-            if (category === 'all') {
-                // If "All" is clicked, deactivate all category filters
-                document.querySelectorAll('.category-filter .filter-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                activeCategoryButton = null;
-                currentCategory = 'all';
-            } else {
-                // If clicking the same button that's already active, deactivate it
-                if (activeCategoryButton === clickedButton) {
-                    clickedButton.classList.remove('active');
-                    activeCategoryButton = null;
-                    currentCategory = 'all';
-                } else {
-                    // Deactivate previous category button
-                    if (activeCategoryButton) {
-                        activeCategoryButton.classList.remove('active');
-                    }
-                    // Activate the new button
-                    clickedButton.classList.add('active');
-                    activeCategoryButton = clickedButton;
-                    currentCategory = category;
-                }
-                // Deactivate the "All" button
-                const allButton = document.querySelector('.category-filter .filter-btn[onclick*="\'all\'"]');
-                if (allButton) {
-                    allButton.classList.remove('active');
-                }
-            }
-            
-            applyFilters();
+            // Remove active class from all category buttons
+            document.querySelectorAll('.category-filter .filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Set the clicked button as active
+            clickedButton.classList.add('active');
+            currentCategory = category;
             
             applyFilters();
         }
