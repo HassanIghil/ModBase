@@ -287,7 +287,7 @@ const apps = [
                 size: '175 MB',
                 features: ['Unlimited Coins', 'All Characters', 'Anti-Ban'],
                 badges: ['POPULAR', 'MOD'],
-                image: 'https://play-lh.googleusercontent.com/h1IGEOwaVTlB1Nz3gabKlw7JF3hU3BkH0ZH_R1I2G5IZgLyZU2UWO7vr1Gp2Z3ShFOY=w526-h296',
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7gsmDhZuJqdXxUzsSwVta6mzP1mYW_xrqTg&s',
                 link: 'https://votre-lien-cpa-22.com'
             },
             {
@@ -300,7 +300,7 @@ const apps = [
                 size: '856 MB',
                 features: ['Unlimited Credits', 'All Cards Unlocked', 'Max Level'],
                 badges: ['VIP', 'UPDATED'],
-                image: 'https://cdn1.dotesports.com/wp-content/uploads/2023/03/14153722/marvel-snap-feature.jpg',
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0n-nuEXZJyKgEvxOuqN_d_DvgjDKuovtJt5IS4ZwSCr5uzoy-5kOgzM5N9t2jix9j42XRJ4jAfwHuhTfWwjg5hjRUn-2xKQAjWCiOgw&s=10',
                 link: 'https://votre-lien-cpa-23.com'
             },
             {
@@ -326,7 +326,7 @@ const apps = [
                 size: '432 MB',
                 features: ['Unlimited Gems', 'VIP Features', 'Speed Ups'],
                 badges: ['MOD', 'No Ban'],
-                image: 'https://play-lh.googleusercontent.com/8K_TBqld6vzYuYt_TKTq4IXRYgWhYqAKW9QF3uGt7dn61qxqmOXBgQByMxjGh-jvtg',
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9MP7dbhI0ieXSk9rqIpi_uodq0JE4I2tdSQ&s',
                 link: 'https://votre-lien-cpa-25.com'
             },
             {
@@ -352,7 +352,7 @@ const apps = [
                 size: '156 MB',
                 features: ['All Skins', 'Premium Items', 'No Ads'],
                 badges: ['MOD', 'TRENDING'],
-                image: 'https://play-lh.googleusercontent.com/PlR-r9z9BQpn4CtkCyCUjrE-_XHGVh65siZJEwQizvxHtInlMHBNHVoqyh6GzY-p4g',
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9t6gDAWuf4Wi3MbB9estieZL4vrjcIdKKkRpLu4n7YO1BNcGsEgCiETLh5aU9P4ZS-WsVDve8MQWZpCR1SwIrx9_WKW2DyNdVajjYOw&s=10',
                 link: 'https://votre-lien-cpa-27.com'
             },
             {
@@ -378,7 +378,7 @@ const apps = [
                 size: '987 MB',
                 features: ['God Mode', 'High Damage', 'Auto Win'],
                 badges: ['MOD', 'Updated'],
-                image: 'https://play-lh.googleusercontent.com/n9c_0x2BO7cQxhnP8tFxv2C_h8K9KGQknFsB9sPF8Db6HgS0_0m0RFQbXrZIf6t6Shs',
+                image: 'https://play-lh.googleusercontent.com/G3pH38wmgu0N9ZEcfeo-sAVy9sgYCS6H3DM5WdXQH8YFfm138KIfjyNJ_BKSydeH2w=w1052-h592-rw',
                 link: 'https://votre-lien-cpa-29.com'
             },
             {
@@ -404,7 +404,7 @@ const apps = [
                 size: '245 MB',
                 features: ['Unlimited Rolls', 'Infinite Money', 'All Tokens'],
                 badges: ['HOT', 'MOD'],
-                image: 'https://play-lh.googleusercontent.com/YP0cgQ-RQgUtV_EvRwPm2YmOHM84SmYKQB3uXhd_P7AxbMGRU08HP9oSEBOFyvTpkQ',
+                image: 'https://cdn.gamekult.com/images/gallery/37/370409/monopoly-go-and-ios-38e7f0c7.png',
                 link: 'https://votre-lien-cpa-31.com'
             },
             {
@@ -430,7 +430,7 @@ const apps = [
                 size: '325 MB',
                 features: ['Unlimited Gold', 'All Minis', 'Max Level'],
                 badges: ['NEW', 'MOD'],
-                image: 'https://play-lh.googleusercontent.com/KWjH6OuM9ZW2kzVvNQfNvXLaRl_eCxfq5hR1Kj9x1I2FH0N2wFaSrV8n4LDcmpD_QG0',
+                image: 'https://i.ytimg.com/vi/vvBKPG_AFnc/maxresdefault.jpg',
                 link: 'https://votre-lien-cpa-33.com'
             },
             {
@@ -456,7 +456,7 @@ const apps = [
                 size: '124 MB',
                 features: ['Unlimited Money', 'All Cars', 'No Ads'],
                 badges: ['MOD', 'CASUAL'],
-                image: 'https://play-lh.googleusercontent.com/e5jZ-of4uQB6xZhy-Ff5VOc9XA8A9VEcZV8sDKFUZu_8bLvLhS7NyKPgDTP2Y9Xw4K0',
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGjVS5eiEAnIJ5dJCcC6L7GomqdizNHOA7GA&s',
                 link: 'https://votre-lien-cpa-35.com'
             },
             {
@@ -482,7 +482,7 @@ const apps = [
                 size: '186 MB',
                 features: ['All Levels Unlocked', 'Custom Songs', 'Practice Mode Bypass'],
                 badges: ['POPULAR', 'MOD'],
-                image: 'https://play-lh.googleusercontent.com/pUoHfu8huqseNk71Uu9N1DrHBRJBBmNfMaJNDz7Xy0RoQ5Pe0SAT98lzHTLj7YZe2w',
+                image: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322170/capsule_616x353.jpg?t=1703006148',
                 link: 'https://votre-lien-cpa-37.com'
             },
             {
@@ -534,7 +534,7 @@ const apps = [
                 size: '42 MB',
                 features: ['Always Six', 'Unlimited Coins', 'Theme Unlocked'],
                 badges: ['MOD', 'Updated'],
-                image: 'https://play-lh.googleusercontent.com/LI_Y_vZZZx4hxEr7YKypwFJBf8TPyxBt8cQtOZFE5zpe_JtoBFO1S7NU9AVqHa4RHs0',
+                image: 'https://wallpapers.com/images/hd/ludo-king-crown-d7x3qjywnbgu4f0w.jpg',
                 link: 'https://votre-lien-cpa-41.com'
             },
             {
@@ -547,7 +547,7 @@ const apps = [
                 size: '98 MB',
                 features: ['Unlimited Gems', 'Always Win', 'VIP Features'],
                 badges: ['MOD', 'No Ban'],
-                image: 'https://play-lh.googleusercontent.com/NaFHykh4I7mG9CfOo4f1e8VuGRpRe5nKqXVIE_MtCMEiI_pnpvK5dxZA6fsUozmozA',
+                image: 'https://cdn.aptoide.com/imgs/2/9/4/294df7a670569a8cab88ae9378725c59_fgraphic.jpg',
                 link: 'https://votre-lien-cpa-42.com'
             }
         ];
