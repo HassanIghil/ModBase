@@ -82,7 +82,7 @@ const apps = [
                 size: '124 MB',
                 features: ['Download Media', 'Ghost Mode', 'No Ads'],
                 badges: ['Plus', 'Privacy'],
-                image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=200&fit=crop',
+                image: 'https://images.unsplash.com/photo-1611262588024-d12430b98920?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1074',
                 link: 'https://votre-lien-cpa-6.com'
             },
             {
@@ -615,15 +615,23 @@ const apps = [
         }
 
         function filterPlatform(platform, clickedButton = null) {
-            currentPlatform = platform;
-            document.querySelectorAll('.platform-btn').forEach(btn => {
-                btn.classList.remove('active', 'bg-blue-600', 'text-white');
-                btn.classList.add('bg-gray-800', 'text-gray-300');
-            });
-            
-            if (clickedButton) {
-                clickedButton.classList.remove('bg-gray-800', 'text-gray-300');
-                clickedButton.classList.add('active', 'bg-blue-600', 'text-white');
+            // If clicking the same button that's already active, set it to 'all'
+            if (currentPlatform === platform && clickedButton) {
+                currentPlatform = 'all';
+                clickedButton.classList.remove('active', 'bg-blue-600', 'text-white');
+                clickedButton.classList.add('bg-gray-800', 'text-gray-300');
+            } else {
+                // Otherwise, set the new platform and update buttons
+                currentPlatform = platform;
+                document.querySelectorAll('.platform-btn').forEach(btn => {
+                    btn.classList.remove('active', 'bg-blue-600', 'text-white');
+                    btn.classList.add('bg-gray-800', 'text-gray-300');
+                });
+                
+                if (clickedButton) {
+                    clickedButton.classList.remove('bg-gray-800', 'text-gray-300');
+                    clickedButton.classList.add('active', 'bg-blue-600', 'text-white');
+                }
             }
             
             applyFilters();
